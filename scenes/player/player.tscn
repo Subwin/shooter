@@ -15,3 +15,13 @@ texture = ExtResource("1_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dovo2")
+
+[node name="LaserTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BomerTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="BomerTimer" to="." method="_on_bomer_timer_timeout"]

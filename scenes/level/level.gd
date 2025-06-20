@@ -1,9 +1,12 @@
 extends Node2D
 
-func _ready() -> void:
-    $Logo.rotation_degrees = 90
 
-func _process(delta: float) -> void:
-    $Logo.rotation_degrees += 10*delta
+func _on_gate_body_enterd() -> void:
+    print("body enterd")
 
- 
+
+func _on_player_shoot_bomer() -> void:
+       print("shoot boomer")
+
+func _on_player_shoot_laser() -> void:
+        print("shoot laser")
