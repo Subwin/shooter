@@ -10,7 +10,8 @@ radius = 63.0714
 script = ExtResource("1_gmlin")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
-position = Vector2(1, -42)
+position = Vector2(46, 1)
+rotation = 1.5708
 texture = ExtResource("1_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,13 +27,13 @@ one_shot = true
 [node name="LaserStartPositions" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(21, -136)
+position = Vector2(142, 22)
 
 [node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(13, -135)
+position = Vector2(138, 10)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(29, -135)
+position = Vector2(136, 32)
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="timeout" from="BomerTimer" to="." method="_on_bomer_timer_timeout"]

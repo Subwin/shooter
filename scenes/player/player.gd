@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-signal shoot_laser(pos)
-signal shoot_bomer(pos)
+signal shoot_laser(pos, direction)
+signal shoot_bomer(pos, direction)
 
 var can_laser = true
 var can_bomer = true
@@ -11,13 +11,16 @@ func _process(delta: float) -> void:
     velocity = dirction * 600
     move_and_slide()
     
+    look_at(get_global_mouse_position())
+    
     if Input.is_action_pressed("primary action") and can_laser:
         can_laser = false
         $LaserTimer.start()
         
         var laser_markers = $LaserStartPositions.get_children()
         var selected_marker = laser_markers[randi() % laser_markers.size()]
-        shoot_laser.emit(selected_marker.global_position)
+        var laser_directon =(get_global_mouse_position() - position).normalized()
+        shoot_laser.emit(selected_marker.global_position, laser_directon)
         
     if Input.is_action_pressed("secondary action") and can_bomer:
         can_bomer = false
@@ -25,7 +28,8 @@ func _process(delta: float) -> void:
         
         var bomer_markers = $LaserStartPositions.get_children()
         var selected_marker = bomer_markers[randi() % bomer_markers.size()]
-        shoot_bomer.emit(selected_marker.global_position)
+        var bomer_directon =(get_global_mouse_position() - position).normalized()
+        shoot_bomer.emit(selected_marker.global_position, bomer_directon)
         
 
 func _on_laser_timer_timeout() -> void:

@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3r72vckm6uo8"]
+[gd_scene load_steps=5 format=3 uid="uid://b3r72vckm6uo8"]
 
+[ext_resource type="Script" uid="uid://dx3ys4vinh327" path="res://scenes/projectiles/bomer.gd" id="1_livt7"]
 [ext_resource type="Texture2D" uid="uid://bf38v31jyvho4" path="res://graphics/projectiles/grenade.png" id="1_qn4c4"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qn4c4"]
+bounce = 0.4
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_livt7"]
-radius = 76.7919
+radius = 31.4006
 
 [node name="Bomer" type="RigidBody2D"]
+mass = 1.6
+physics_material_override = SubResource("PhysicsMaterial_qn4c4")
+gravity_scale = 0.0
+script = ExtResource("1_livt7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_qn4c4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
