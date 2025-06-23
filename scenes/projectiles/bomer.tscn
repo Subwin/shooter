@@ -10,6 +10,8 @@ bounce = 0.4
 radius = 31.4006
 
 [node name="Bomer" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 2
 mass = 1.6
 physics_material_override = SubResource("PhysicsMaterial_qn4c4")
 gravity_scale = 0.0

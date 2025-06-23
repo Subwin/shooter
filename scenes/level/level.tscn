@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxjd3w540ai5w"]
+[gd_scene load_steps=5 format=3 uid="uid://cxjd3w540ai5w"]
 
 [ext_resource type="Script" uid="uid://56xdvrjfwsqj" path="res://scenes/level/level.gd" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://b3dvdb7v5wsea" path="res://scenes/player/player.tscn" id="2_i166f"]
 [ext_resource type="PackedScene" uid="uid://b6sa2u8s75aci" path="res://scenes/objects/gate.tscn" id="2_qkmgm"]
+[ext_resource type="PackedScene" uid="uid://ctv4u8xtba12b" path="res://scenes/houses/house.tscn" id="4_qkmgm"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_i166f")
@@ -12,8 +13,14 @@ position = Vector2(-9, 5)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="House" parent="." instance=ExtResource("4_qkmgm")]
+position = Vector2(-3041, 1841)
+
 [node name="Player" parent="." instance=ExtResource("2_i166f")]
 position = Vector2(476, 573)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [connection signal="body_enterd" from="Gate" to="." method="_on_gate_body_enterd"]
 [connection signal="shoot_bomer" from="Player" to="." method="_on_player_shoot_bomer"]
