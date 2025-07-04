@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://i1qt8wsxhxtc"]
+
+[ext_resource type="PackedScene" uid="uid://cxjd3w540ai5w" path="res://scenes/level/level.tscn" id="1_chbu6"]
+[ext_resource type="Script" uid="uid://jbux5moxxbec" path="res://scenes/level/outside.gd" id="2_2c6vv"]
+[ext_resource type="PackedScene" uid="uid://b6sa2u8s75aci" path="res://scenes/objects/gate.tscn" id="2_hprkc"]
+[ext_resource type="PackedScene" uid="uid://rv3i6r0mmssf" path="res://scenes/level/inside.tscn" id="3_knkaw"]
+[ext_resource type="PackedScene" uid="uid://b8735ub2u486u" path="res://scenes/objects/item.tscn" id="5_qy42e"]
+
+[node name="Outside" instance=ExtResource("1_chbu6")]
+script = ExtResource("2_2c6vv")
+inside_scene = ExtResource("3_knkaw")
+
+[node name="Gate" parent="." index="0" instance=ExtResource("2_hprkc")]
+
+[node name="Item" parent="." index="4" instance=ExtResource("5_qy42e")]
+position = Vector2(259, 516)
+
+[connection signal="body_enterd" from="Gate" to="." method="_on_gate_body_enterd"]

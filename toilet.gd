@@ -1,6 +1,5 @@
-extends RigidBody2D
+extends ItemContainer
 
-const speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     pass
 
-func explode() -> void:
-    print("explode")
+func hit():
+    print("toilet")

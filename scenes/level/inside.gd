@@ -1,6 +1,5 @@
-extends RigidBody2D
+extends LevelParent
 
-const speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,5 +10,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     pass
 
-func explode() -> void:
-    print("explode")
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    var tween = get_tree().create_tween()
+    tween.tween_property($Player, "speed", 0, 0.5)
+    TransitionLayer.change_scene("res://scenes/level/outside.tscn")

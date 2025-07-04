@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="shooter"
-run/main_scene="uid://cxjd3w540ai5w"
+run/main_scene="uid://i1qt8wsxhxtc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globals/globals.gd"
+TransitionLayer="*res://scenes/UI/transition_layer.tscn"
 
 [input]
 

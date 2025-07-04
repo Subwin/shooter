@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3dvdb7v5wsea"]
+[gd_scene load_steps=5 format=3 uid="uid://b3dvdb7v5wsea"]
 
 [ext_resource type="Texture2D" uid="uid://ral1vyeb827q" path="res://graphics/player/player.png" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bu7h1e2xmn1aq" path="res://scenes/player/player.gd" id="1_gmlin"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 63.0714
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dovo2"]
+polygon = PackedVector2Array(0, -65, -28, -55, -47, -31, -53, -5, -46, 20, -37, 37, -26, 59, 6, 66, 33, 57, 46, 42, 68, 43, 68, 51, 102, 54, 105, 44, 117, 38, 129, 38, 133, 33, 141, 32, 142, 9, 133, 6, 120, 3, 117, -5, 106, -4, 94, -12, 87, -11, 71, -26, 59, -27, 54, -39, 46, -46, 38, -61, 23, -57)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -35,6 +38,9 @@ position = Vector2(138, 10)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(136, 32)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_dovo2")
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="timeout" from="BomerTimer" to="." method="_on_bomer_timer_timeout"]
